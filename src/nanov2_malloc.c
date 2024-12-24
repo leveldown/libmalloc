@@ -28,6 +28,11 @@
 #pragma mark -
 #pragma mark Forward Declarations
 
+#ifndef OS_VARIANT_RESOLVED
+#define OS_VARIANT_RESOLVED 1
+#define OS_VARIANT_NOTRESOLVED 0
+#endif
+
 #if OS_VARIANT_NOTRESOLVED
 static kern_return_t
 nanov2_statistics_task_printer(task_t task, vm_address_t zone_address,

@@ -161,7 +161,7 @@ MALLOC_ALWAYS_INLINE
 static inline boolean_t
 should_sample_counter(uint32_t counter_range)
 {
-	uint32_t counter = TSD_GET_COUNTER();
+		uint32_t counter = ((uint32_t)_pthread_getspecific_direct(__TSD_MALLOC_PROB_GUARD_SAMPLE_COUNTER));
 	if (counter == k_no_sample) {
 		return false;
 	}
@@ -1082,7 +1082,7 @@ env_bool(const char *name) {
 }
 
 #if CONFIG_FEATUREFLAGS_SIMPLE
-# define FEATURE_FLAG(feature, default) os_feature_enabled_simple(libmalloc, feature, default)
+# define FEATURE_FLAG(feature, default) os_feature_enabled_simple(malloc, feature, default)
 #else
 # define FEATURE_FLAG(feature, default) (default)
 #endif
@@ -1156,7 +1156,7 @@ pgm_should_enable(void)
 		return g_env.MallocProbGuard;
 	}
 	bool internal_build = g_env.internal_build;
-	if (FEATURE_FLAG(ProbGuard, true) && should_activate(internal_build)) {
+	if (should_activate(internal_build)) {
 #if TARGET_OS_OSX || TARGET_OS_IOS
 		return true;
 #elif TARGET_OS_WATCH || TARGET_OS_TV
@@ -1171,7 +1171,7 @@ pgm_should_enable(void)
 		}
 #endif
 	}
-	if (FEATURE_FLAG(ProbGuardAllProcesses, false)) {
+	if (true) {
 		return true;
 	}
 	return false;

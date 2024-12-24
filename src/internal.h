@@ -38,6 +38,7 @@ __ptrcheck_abi_assume_single()
 #include <malloc/_platform.h>
 #include <Availability.h>
 #include <TargetConditionals.h>
+#include <missingDefines.h>
 
 #include "platform.h" // build configuration macros
 
@@ -158,7 +159,7 @@ _Static_assert(sizeof(plat_map_exclaves_t) == sizeof(plat_map_t),
 #endif // !MALLOC_TARGET_EXCLAVES
 #include <os/overflow.h>
 #if !TARGET_OS_DRIVERKIT && !MALLOC_TARGET_EXCLAVES
-# include <os/feature_private.h>
+//# include <os/feature_private.h>
 #endif // !TARGET_OS_DRIVERKIT && !MALLOC_TARGET_EXCLAVES
 #if !MALLOC_TARGET_EXCLAVES
 # include <os/tsd.h>
@@ -224,7 +225,7 @@ _Static_assert(sizeof(plat_map_exclaves_t) == sizeof(plat_map_t),
 #if !MALLOC_TARGET_EXCLAVES
 # include <sys/ulock.h>
 # include <sys/vmparam.h>
-# include <thread_stack_pcs.h>
+//# include <thread_stack_pcs.h>
 #endif // !MALLOC_TARGET_EXCLAVES
 #include <unistd.h>
 #if !MALLOC_TARGET_EXCLAVES

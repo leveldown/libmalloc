@@ -42,7 +42,7 @@ typedef unsigned long long malloc_type_id_t;
 #endif
 #include <sys/cdefs.h> /* __BEGIN_DECLS */
 
-#define _MALLOC_TYPE_AVAILABILITY __API_AVAILABLE(macos(14.0), ios(17.0), tvos(17.0), watchos(10.0), bridgeos(8.0), xros(1.0), driverkit(23.0))
+#define _MALLOC_TYPE_AVAILABILITY __API_AVAILABLE(macos(14.0), ios(17.0), tvos(17.0), watchos(10.0) , xros(1.0), driverkit(23.0))
 
 __BEGIN_DECLS
 

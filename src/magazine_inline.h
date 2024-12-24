@@ -25,6 +25,7 @@
 #define __MAGAZINE_INLINE_H
 
 #include <malloc/_ptrcheck.h>
+#include <missingDefines.h>
 __ptrcheck_abi_assume_single()
 
 extern unsigned int _os_cpu_number_override;
